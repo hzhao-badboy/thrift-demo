@@ -18,28 +18,28 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 public class ThriftServiceApplicationTests {
 
-	@Resource
-	HelloService.Iface helloService;
-
-	@Test
-	public void contextLoads() {
-        try {
-            System.out.println(helloService.greet("world"));
-        } catch (TException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void testRemote() {
-        try (TTransport transport = new TSocket("localhost", 9898, 30000)) {
-            TProtocol protocol = new TBinaryProtocol(transport);
-            HelloService.Client helloService = new HelloService.Client(protocol);
-            transport.open();
-            log.info("远程调用服务...{}", helloService.greet("Remote"));
-        } catch (TException e) {
-            log.error("远程调用异常.", e);
-        }
-    }
+    //@Resource
+    //HelloService.Iface helloService;
+    //
+    //@Test
+    //public void contextLoads() {
+    //    try {
+    //        System.out.println(helloService.greet("world"));
+    //    } catch (TException e) {
+    //        e.printStackTrace();
+    //    }
+    //}
+    //
+    //@Test
+    //public void testRemote() {
+    //    try (TTransport transport = new TSocket("localhost", 9898, 30000)) {
+    //        TProtocol protocol = new TBinaryProtocol(transport);
+    //        HelloService.Client helloService = new HelloService.Client(protocol);
+    //        transport.open();
+    //        log.info("远程调用服务...{}", helloService.greet("Remote"));
+    //    } catch (TException e) {
+    //        log.error("远程调用异常.", e);
+    //    }
+    //}
 
 }
